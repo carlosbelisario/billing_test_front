@@ -1,0 +1,17 @@
+<h2>Facturación de la empresa {{company.name}}</h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Cliente</th>
+    <th>Número</th>
+    <th>Detalles</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let invoice of company.invoice">
+    <td>{{ invoice.client.name }}</td>
+    <td>{{ invoice.number }}</td>
+    <td><a routerLink="/invoice/{{invoice.id}}" class="nav-link">icono</a></td>
+  </tr>
+  </tbody>
+</table>

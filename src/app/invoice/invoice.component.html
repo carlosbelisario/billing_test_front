@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div class="col-12 text-center"><h2>Factura Nº {{invoice.number}}</h2></div>
+  <div class="row m-5">
+    <div class="col-1 font-weight-bold">Cliente:</div>
+    <div class="col-10 text-capitalize">{{invoice.client.name}}</div>
+  </div>
+  <div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Precio Unitario</th>
+        <th>Cantidad</th>
+        <th>Total</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let detail of invoice.detail" >
+        <td>{{ detail.product }}</td>
+        <td>{{ detail.price }}</td>
+        <td>{{ detail.product_length }}</td>
+        <td class="text-right"  >{{ detail.price * detail.product_length}}</td>
+      </tr>
+      <tr *ngIf="invoice.detail.length > 0">
+        <td class="font-weight-bold">I.V.A:</td>
+        <td colspan="3" class="text-right">{{invoice.iva}}</td>
+      </tr>
+      <tr *ngIf="invoice.detail.length > 0">
+        <td class="font-weight-bold">total:</td>
+        <td colspan="3" class="text-right">{{invoice.total}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
